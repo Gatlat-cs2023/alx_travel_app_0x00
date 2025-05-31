@@ -1,13 +1,15 @@
 from rest_framework import serializers
 from .models import Listing, Booking
 
-# Serializers for the Listing and Booking models
 class ListingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Listing
-        fields = '__all__'
+        fields = ['id', 'title', 'description', 'price_per_night', 'host', 'created_at']
 
 class BookingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Booking
-        fields = '__all__'
+        fields = ['id', 'listing', 'guest', 'check_in', 'check_out', 'total_price', 'created_at']
+
+
+
